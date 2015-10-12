@@ -1,0 +1,11 @@
+<html>
+<head>
+	<title>Shelter: {{shelter.name}}</title>
+</head>
+<body>
+	<h1>Puppies</h1>
+	{%  for puppy in puppies %}
+	<div><a href="{{url_for('puppyProfile', shelter_id=shelter.id, puppy_id=puppy.id)}}">{{puppy.name}}</a></div>
+	{% endfor %}
+</body>
+</html>
