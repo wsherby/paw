@@ -1,0 +1,11 @@
+<html>
+<head>
+	<title>PAW</title>
+</head>
+<body>
+	<h1>Shelters</h1>
+	{%  for shelter in shelters %}
+	<div>{{shelter.name}}</div><div><a href="{{url_for('edit_shelter', shelter_id=shelter.id)}}">edit</a></div>
+	{% endfor %}
+</body>
+</html>

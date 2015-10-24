@@ -1,6 +1,6 @@
 import os, sys
 
-from sqlalchemy import Column, ForeignKey, Integer, String, Date, Float
+from sqlalchemy import Column, ForeignKey, Integer, String, Date, Float, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
@@ -43,9 +43,11 @@ class Owner(Base):
 	email = Column(String(100))
 	date_of_birth = Column(Date)
 	gender = Column(String(20))
-	password = String(20)
+	password = Column(String(20))
 	puppy_id = Column(Integer, ForeignKey('puppy.id'))
+	is_admin = Column(Boolean, default = False)
 	sqlite_autoincrement = True
+
 
 #Class for owner puppy matches?
 

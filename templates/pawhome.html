@@ -7,6 +7,6 @@
 	{%  for shelter in shelters %}
 	<div><a href="{{url_for('shelterHome', shelter_id=shelter.id)}}">{{shelter.name}}</a></div>
 	{% endfor %}
-
+	<a href = "{{url_for('admin')}}">Admin</a>
 </body>
 </html>
