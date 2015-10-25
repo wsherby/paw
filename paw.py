@@ -38,13 +38,28 @@ def shelter_admin():
 	shelters = session.query(Shelter).all()
 	return render_template('shelter_admin.html', shelters = shelters)
 
-@app.route('/paw/admin/puppies')
-def puppies_admin():
-	return render_template('shelter_puppies.html')
+@app.route('/paw/admin/puppies/<int:shelter_id>/')
+def puppies_admin(shelter_id):
+	puppies = session.query(Puppy).filter_by(shelter_id = shelter_id).all()
+	return render_template('puppies_admin.html', puppies = puppies)
+
+@app.route('/paw/admin/puppies/edit/<int:puppy_id>/', methods = ['GET', 'POST'])
+def edit_puppy(puppy_id):
+	puppy = session.query(Puppy).filter_by(id = puppy_id).one()
+	shelters = session.query(Shelter).all()
+	if request.method == 'POST':
+		puppy.name = request.form['name']
+		puppy.date_of_birth = str(request.form['dob']) #handle data type
+		puppy.breed = request.form['breed']
+		puppy.weight = request.form['weight']
+		print session.query(Shelter).filter_by(name = request.form['shelter']).one()
+		# puppy.shelter_id = shelters.filter_by(name = request.form['shelter']).one()
+		return redirect(url_for('puppies_admin', shelter_id=puppy.shelter_id))
+	return render_template('edit_puppy.html', puppy= puppy, shelters = shelters)
 
 @app.route('/paw/admin/owners')
 def owners_admin():
-	return render_template('shelter_owners.html')
+	return render_template('owner_admin.html')
 
 @app.route('/paw/admin/shelter/<int:shelter_id>/edit/', methods = ['GET', 'POST'])
 def edit_shelter(shelter_id):
