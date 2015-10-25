@@ -1,0 +1,12 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<h1> Are you sure you want to delete {{puppy.name}}? </h1>
+		<form action="{{ url_for('delete_puppy',puppy_id = puppy.id)}}" method = 'POST'>
+			<input type='submit', value = 'Delete'>
+		</form>
+		<a href = "{{ url_for('puppies_admin', shelter_id = puppy.shelter_id)}}"> Cancel </a>
+	</body>
+
+</html>

@@ -8,17 +8,17 @@
 		<form action="{{url_for('edit_shelter', shelter_id = shelter.id)}}" method='POST'>
 			<d1>
 				<dt>Name:</dt>
-					<dd><input type = 'text' size='30' name='name' placeholder='{{shelter.name}}'></dd>
+					<dd><input type = 'text' size='30' name='name' value='{{shelter.name}}'></dd>
 				<dt>Address:</dt>
-					<dd><input type = 'text' size='30' name='address' placeholder='{{shelter.address}}'></dd>
+					<dd><input type = 'text' size='30' name='address' value='{{shelter.address}}'></dd>
 				<dt>City:</dt>
-					<dd><input type = 'text' size='30' name='city' placeholder='{{shelter.city}}'></dd>
+					<dd><input type = 'text' size='30' name='city' value='{{shelter.city}}'></dd>
 				<dt>State:</dt>
-					<dd><input type = 'text' size='30' name='state' placeholder='{{shelter.state}}'></dd>
+					<dd><input type = 'text' size='30' name='state' value='{{shelter.state}}'></dd>
 				<dt>Zipcode:</dt>
-					<dd><input type = 'text' size='30' name='zipcode' placeholder='{{shelter.zipcode}}'></dd>
+					<dd><input type = 'text' size='30' name='zipcode' value='{{shelter.zipcode}}'></dd>
 				<dt>Email:</dt>
-					<dd><input type = 'text' size='30' name='email' placeholder='{{shelter.email}}'></dd>
+					<dd><input type = 'text' size='30' name='email' value='{{shelter.email}}'></dd>
 			</d1>
 				
 			<input type='submit' value='Edit'>

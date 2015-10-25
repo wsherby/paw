@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>PAW</title>
+	</head>
+
+	<body>
+		<h1>New Shelter</h1>
+		<form action="{{url_for('create_shelter')}}" method='POST'>
+			<d1>
+				<dt>Name:</dt>
+					<dd><input type = 'text' size='30' name='name'></dd>
+				<dt>Address:</dt>
+					<dd><input type = 'text' size='30' name='address'></dd>
+				<dt>City:</dt>
+					<dd><input type = 'text' size='30' name='city'></dd>
+				<dt>State:</dt>
+					<dd><input type = 'text' size='30' name='state'></dd>
+				<dt>Zipcode:</dt>
+					<dd><input type = 'text' size='30' name='zipcode'></dd>
+				<dt>Email:</dt>
+					<dd><input type = 'text' size='30' name='email'></dd>
+			</d1>
+				
+			<input type='submit' value='Create'>
+			<a href="{{url_for('shelter_admin')}}">Cancel</a>
+		</form>
+		
+	</body>
+
+</html>

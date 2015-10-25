@@ -8,18 +8,21 @@
 		<form action="{{url_for('edit_puppy', puppy_id = puppy.id)}}" method='POST'>
 			<d1>
 				<dt>Name:</dt>
-					<dd><input type = 'text' size='30' name='name' placeholder='{{puppy.name}}'></dd>
+					<dd><input type = 'text' size='30' name='name' value='{{puppy.name}}'></dd>
 				<dt>DOB:</dt>
-					<dd><input type = 'date' name = 'dob'></dd>
+					<dd><input type = 'date' name = 'dob' value = "{{puppy.date_of_birth.strftime('%Y-%m-%d')}}"></dd>
 				<dt>Breed:</dt>
-					<dd><input type = 'text' size='30' name='breed' placeholder='{{puppy.breed}}'></dd>
+					<dd><input type = 'text' size='30' name='breed' value='{{puppy.breed}}'></dd>
 				<dt>Gender:</dt>
-					<dd><input type = 'text' size='30' name='gender' placeholder='{{puppy.gender}}'></dd>
+					<dd><input type = 'text' size='30' name='gender' value='{{puppy.gender}}'></dd>
 				<dt>Weight:</dt>
-					<dd><input type = 'text' size='30' name='weight' placeholder='{{puppy.weight}}'>lbs</dd>
+					<dd><input type = 'text' size='30' name='weight' value='{{puppy.weight}}'>lbs</dd>
 				<dt>Shelter:</dt>
 					<dd><select name = "shelter">
 						{% for shelter in shelters %}
+							{% if shelter.id == puppy.shelter_id %}
+								<option value = '{{shelter.name}}' selected = "selected">{{shelter.name}}</option>
+							{% endif %}
 							<option value = '{{shelter.name}}'>{{shelter.name}}</option>
 						{% endfor %}
 					</select>

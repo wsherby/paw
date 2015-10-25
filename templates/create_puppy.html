@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>PAW</title>
+	</head>
+
+	<body>
+		<h1>Create Puppy</h1>
+		<form action="{{url_for('create_puppy', current_shelter_id = current_shelter_id)}}" method='POST'>
+			<d1>
+				<dt>Name:</dt>
+					<dd><input type = 'text' size='30' name='name'></dd>
+				<dt>DOB:</dt>
+					<dd><input type = 'date' name = 'dob'></dd>
+				<dt>Breed:</dt>
+					<dd><input type = 'text' size='30' name='breed'></dd>
+				<dt>Gender:</dt>
+					<dd><input type = 'text' size='30' name='gender'></dd>
+				<dt>Weight:</dt>
+					<dd><input type = 'text' size='30' name='weight'>lbs</dd>
+				<dt>Shelter:</dt>
+					<dd><select name = "shelter">
+						{% for shelter in shelters %}
+							{% if shelter.id == current_shelter_id %}
+								<option value = '{{shelter.name}}' selected = "selected">{{shelter.name}}</option>
+							{% endif %}
+							<option value = '{{shelter.name}}'>{{shelter.name}}</option>
+						{% endfor %}
+					</select></dd>
+			</d1>
+				
+			<input type='submit' value='Create'>
+			<a href="{{url_for('puppies_admin', shelter_id = current_shelter_id)}}">Cancel</a>
+		</form>
+		
+	</body>
+
+</html>
